@@ -5,3 +5,11 @@ exports.checkUsers = function(req, res) {
   	console.log("user2", user, err);
   });
 };
+
+exports.getAllUsers = function(req, res){
+	Users.find({}, function (err, users) {
+  	console.log("users", users);
+  	res.json({users:users});
+  });
+};
+

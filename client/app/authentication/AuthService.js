@@ -6,10 +6,7 @@ angular.module('app').factory('AuthService',['$http', '$q','$cookies','$location
 		login : function(username, password) {
 			 var dfd = $q.defer();
 			$http.post('/api/login', {username : username,password : password}).then(function(response) {
-				console.log("response", response);
 				if (response.data.success === true) {
-					// var user = new User();
-					// angular.extend(user, response.data.user);
 					currentUser = response.data.user;
 					User.currentUser = response.data.user;
 					 $location.path('/home');

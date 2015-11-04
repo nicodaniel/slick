@@ -2,7 +2,8 @@ var path = require('path'),
     clientPath = path.normalize(__dirname + '/../../client'),
     authentication = require('./authentication'),
     diagrams = require('../controllers/diagrams'),
-    messages = require('../controllers/messages');
+    messages = require('../controllers/messages'),
+    user = require('../controllers/users');
 
     var passport = require('passport'),
 	mongoose = require('mongoose'),
@@ -16,8 +17,15 @@ module.exports = function(app, http, io) {
 	io.on('connection', function(socket) {
 		console.log('a user connected');
 		socket.on('disconnect', function() {
-			console.log('user disconnected');
+		console.log('user disconnected');
+		// remove the username from global usernames list
+		delete usernames[socket.username];
+		// update list of users in chat, client-side
+		io.sockets.emit('updatedusers', usernames);
+		// echo globally that a client has left
+		socket.broadcast.emit('user disconnect', socket.username);
 		});
+		
 		socket.on('send:message', function(msg) {
 			io.emit('send:message', msg);
 			messages.saveMessage(msg);
@@ -31,6 +39,7 @@ module.exports = function(app, http, io) {
 			// add the client's username to the global list
 			usernames[username] = username; 
 			// // echo globally (all clients) that a person has connected
+			socket.broadcast.emit('updatechat', username + ' has connected');
 			io.emit('user joined', {
 				username : socket.username
 			});
@@ -46,6 +55,10 @@ module.exports = function(app, http, io) {
 	//retrieve messages from channel
 	app.get('/api/channel/:channel/messages');
 	app.get('/api/channel/:channel/messages/before/:date');
+	
+	//users
+	app.get('/api/users', user.getAllUsers);
+	// app.get('/api/user/:id');
 	
 
 	app.all('/api/*', function(req, res) {

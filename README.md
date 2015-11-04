@@ -1,2 +1,0 @@
-# slick
-slack-like-project

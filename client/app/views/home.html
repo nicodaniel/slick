@@ -38,6 +38,16 @@
 				</div>
 				<div>
 					<i class="glyphicon glyphicon-heart green-color"></i> slackbot
+					<ul>
+						<li ng-repeat="user in users">
+							<div ng-show="user.username != currentUser.username">
+								 <div id="cercle" class="grey-color" style="display: inline-block"></div>
+								<div style="display: inline-block">
+									{{user.username}}
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="box-space">

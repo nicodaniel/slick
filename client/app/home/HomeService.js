@@ -5,7 +5,10 @@ angular.module('app').
     return {
       login: function(username, password) {
         return $http.post('/api/login', {username:username,password: password});
-      },     
+      }, 
+      getUsers:function(){
+      	return $http.get('/api/users');
+      },    
       addApplication: function(application) {
         return $http.post('/api/applications/', application); 
       },
