@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="slack_like">
+		<title>slack</title>
+		<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+		<link rel="icon" href="img/favicon.png" type="image/png">
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="vendor_old/bootstrap/dist/css/bootstrap.css" />
+
+	</head>
+	<body ng-app="app">
+		<div ng-view=""></div>
+		<script src="/socket.io/socket.io.js"></script>
+		<!-- <script type="text/javascript" src="vendor_old/angular/angular.min.js"></script>
+		<script type="text/javascript" src="vendor_old/angular-resource/angular-resource.min.js"></script>
+		<script type="text/javascript" src="vendor_old/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="vendor_old/angular-sanitize/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="vendor_old/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>-->
+
+		<script type="text/javascript" src="vendor/angular.js"></script>
+		<script type="text/javascript" src="vendor/angular-cookies.js"></script>
+		<script type="text/javascript" src="vendor/angular-resource.js"></script>
+		<script type="text/javascript" src="vendor/angular-route.js"></script>
+		<script type="text/javascript" src="vendor/angular-sanitize.js"></script>
+		<script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/group/GroupCtrl.js"></script>
+		<script type="text/javascript" src="app/home/HomeCtrl.js"></script>
+		<script type="text/javascript" src="app/home/SigninCtrl.js"></script>
+		<script type="text/javascript" src="app/socket/socket.js"></script>
+		<script type="text/javascript" src="app/home/HomeService.js"></script>
+		<script type="text/javascript" src="app/authentication/AuthService.js"></script>
+		<script type="text/javascript" src="app/authentication/User.js"></script>
+
+	</body>
+</html>

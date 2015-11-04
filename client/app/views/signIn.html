@@ -1,0 +1,57 @@
+		<div ng-include="'app/views/navbar-signin.html'"></div>
+
+	<div  style="background: #f9f9f9;">
+		<section class="row" >
+			<div class="" style="margin-top: 120px;">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div style="background: #ffffff;border: 1px solid #e8e8e8;padding: 25px 50px 50px 50px;border-radius: .25rem;">
+						<h1 class="text-center"> Sign in to <span class="break_word">isepbollah.slack.com</span></h1>
+						<h4 class="text-center">Enter your email address and password.</h4>
+						<div class="row">
+							<form class="col-sm-8 col-sm-offset-2" style="">
+								<input type="text" class="form-control input-lg" placeholder="you@domain.com"
+								ng-model="username" style="margin-bottom: 10px;" />
+								<input type="password" class="form-control input-lg" placeholder="password" ng-model="password" />
+								<button type="button" class="btn btn-success btn-lg btn-block"
+								ng-click="logMeIn(username, password)"
+								style="background: #2ab27b;border-color:#48BA87;margin-top: 7px;">
+									<b>Sign In</b>
+								</button>
+								<h6 class="text-center">
+										<input type="checkbox" value="">
+									<span style="margin-top: 2px;">Keep me sign</span>
+								</h6>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div ng-view=""></div> -->
+		</section>
+
+		<section class="row">
+			<div class="" style="margin-top: 20px;">
+				<div class="col-sm-8 col-sm-offset-2" style="margin-bottom: 90px;">
+					<h4 class="text-center" style="padding: 10px;">
+						To start using Slack, you'll need to be invited by your team administrator.
+					</h4>
+					<h4 class="text-center">
+						Trying to create a team? <a>Sign up on the home page</a> to get started.
+					</h4>
+				</div>
+			</div>
+		</section>
+		</div>
+		
+		<footer class="" style="height: 150px;background: #FFF;border-top: 1px solid #e8e8e8">
+			<div class="row" style="padding: 70px 20px 20px 40px;">
+				<div class="col-sm-3">
+					<img src="img/Logo_Slack.png" width="30" />
+					<br />
+					<h10 >Made with <i class="glyphicon glyphicon-heart"></i> by Bunny</h10>
+				</div>
+				<div class="col-sm-3"></div>
+				<div class="col-sm-3"></div>
+				<div class="col-sm-3"></div>
+			</div>
+		</footer>

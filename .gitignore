@@ -1,0 +1,4 @@
+server/node_modules
+client/vendor_old
+client/vendor/*
+.project

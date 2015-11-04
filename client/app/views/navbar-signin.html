@@ -1,0 +1,34 @@
+<!-- Fixed navbar -->
+<div id="navigation" class="navbar navbar-default navbar-fixed-top" style="height: 70px;background: #FFF; ">
+  <div class="container">
+    <div class="navbar-header" style="height: 70px;">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="./img/slack_logo-bis.png" width="110" style="padding-top: 5px;" /></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+        <ul class="nav navbar-nav" style="padding-top: 10px;">
+            <li ng-class="{ active: isActiveLink('/')}">
+                <a ng-href="/" ng-click="setActiveLink('/')">Product</a>
+            </li>
+            <li ng-class="{ active: isActiveLink('/')}">
+                <a ng-href="/group" ng-click="setActiveLink('/')">Pricing</a>
+            </li>
+             <li ng-class="{ active: isActiveLink('/')}">
+                <a ng-href="/groupId" ng-click="setActiveLink('/')">Support</a>
+            </li>
+            <li ng-class="{ active: isActiveLink('/')}">
+                <a ng-href="/groupId" ng-click="setActiveLink('/')">Blog</a>
+            </li>
+            <li ng-class="{ active: isActiveLink('/')}">
+               <button type="button" class="btn btn-success" 
+               style="background: #48BA87;border-color:#48BA87;margin-top: 7px;"><b>Sign up for free</b></button>
+            </li>
+        </ul>
+             
+    </div><!--/.nav-collapse -->
+  </div> <!-- container -->
+</div> <!-- navigation --> 

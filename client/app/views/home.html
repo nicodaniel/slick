@@ -1,0 +1,121 @@
+<div class="container-fluid" style="background-color: white!important;">
+	<div class="row">
+		<div class="sidebar" style="background: #4D394B;padding-right: 20px;">
+			<div class="" style="padding: 15px 7px 10px 15px;" >
+				<!--  channel name and connection status -->
+					<div style="color:white;font-size: 18px;" style="display: inline-block">
+						<b>isepbollah</b>
+						<i class="glyphicon glyphicon-chevron-down purple-font-color arrow-display dropdown"
+						ng-click="openWindow"></i>
+					</div>
+					<div>
+						<div id="cercle" class="green-color" style="display: inline-block"></div>
+						<div class="purple-font-color" style="display: inline-block">
+							{{currentUser.username}}
+						</div>
+					</div>
+			</div>
+			<div class="purple-font-color" >
+				<div style="margin-left: 15px;">
+					CHANNELS(2)
+				</div>
+				<div>
+					<div class="active-channel channel">
+						<p style="margin-left: 15px;margin-bottom: 0px;padding: 3px;">
+							#general
+						</p>
+					</div>
+					<div class="channel">
+						<p style="margin-left: 15px;margin-bottom: 0px;padding: 3px;">
+							#random
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="purple-font-color box-space">
+				<div>
+					DIRECT MESSAGES(1)
+				</div>
+				<div>
+					<i class="glyphicon glyphicon-heart green-color"></i> slackbot
+				</div>
+			</div>
+			<div class="box-space">
+				<div class="purple-font-color">
+					There's no one here yet
+				</div>
+				<div class="white-font-color">
+					+ Invite People
+				</div>
+			</div>
+			<div class="sidebar-search-zone" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+				<i class="glyphicon glyphicon-search white-font-color"></i>
+				<span ng-show="hoverQuickSwitcher" class="white-font-color">Quick Switcher Ctrl+K</span>
+			</div>
+		</div>
+		<div class="right-content">
+			<div class="row channel-header">
+				<h4>#general</h4>
+			</div>
+			<div>
+				<h2><b>#general</b></h2>
+				<p style="width: 580px;">
+					This is the very beginning of the <a>#general</a> channel, which you created yesterday.
+					The purpose of this channel is: This channel is for team-wide communication and announcements.
+					All team members are in this channel.
+				</p>
+			</div>
+			<div>
+				<ul style="padding-left: 0px;">
+					<li ng-repeat="mess in messages track by $index" style="margin-bottom: 10px;">
+						<div style="display: inline-block;" ng-show="showAuthor($index)">
+							<img src="./img/avatar1.png" width="36" height="36" style="border-radius: 3px;display: inline-block;margin-top: 15px;" />
+							<p style="display: inline-block;margin-left: 6px;"><b>{{mess.author}}</b></p>
+							<p style="display: inline-block;" class="message-time-font">{{mess.timestamp | date:'h:mm'}}
+								<i class="glyphicon glyphicon-star"></i></p>
+							<p style="display: block;margin-top: -16px;padding-left: 47px;margin-bottom: 0px;">{{mess.message}}</p>
+						</div>
+						<div ng-show="!$first">
+							<div class="message-time message-time-font">{{mess.timestamp | date:'h:mm'}}
+								<i class="glyphicon glyphicon-star"></i></div>
+							<div style="display: inline-block;">{{mess.message}}</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="row" style="margin-right: 10px;position: fixed;bottom: 0;margin-bottom: 15px;">
+				<div class="col-lg-6">
+					<div class="panel panel-default" style="margin-bottom: 0px;width: 83%;margin-left: 51px;" ng-show="">
+						<div class="panel-heading" style="padding: 5px 10px 4px;">
+							<span class="grey-color-2">Channels</span>
+						</div>
+						<div class="panel-body" style="padding-left: 10px;padding-top: 5px;padding-bottom: 0px;">
+							<ul>
+								<li>
+									<b>#test1</b>
+								</li>
+								<li>
+									<b>#test2</b>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-default btn-lg extra-option" type="button">
+								<i class="glyphicon glyphicon-plus plus-color"></i>
+							</button> </span>
+						<input type="text" class="form-control  input-lg" placeholder=""
+						ng-model="message" ng-keyup="$event.keyCode == 13 ? sendMessage(message) : null"
+						style="border-left: none;box-shadow: none;">
+					</div><!-- /input-group -->
+					<div ng-show="message.length !=0"
+					style="float:right;box-sizing: border-box;line-height: 22px;color: #b6c2c9;font-size: 13px;">
+						Press Enter to send
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

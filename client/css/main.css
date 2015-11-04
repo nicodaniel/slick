@@ -1,0 +1,152 @@
+/*.form-control:focus{
+ border-color: #cccccc;
+ -webkit-box-shadow: none;
+ box-shadow: none;
+ }*/
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	display: block;
+	background: #4D394B;
+	width: 220px;
+}
+
+#cercle {
+	background: #38978D;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+}
+
+.green-color {
+	color: #38978D;
+}
+
+.purple-font-color {
+	color: #ab9ba9 !important;
+}
+
+.white-font-color {
+	color: white;
+}
+
+.sidebar-search-zone {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+	padding-left: 90px;
+	width: 220px;
+	max-height: 60px;
+}
+
+.sidebar-search-zone:hover {
+	background-color: #3e313c;
+	cursor: pointer;
+	padding-left: 20px;
+	transition: padding 0.7s ease-in-out;
+	/*ease-in-out depart et fin longue pour la transition*/
+}
+
+.active-channel {
+	cursor: pointer;
+	background: #4c9689;
+	color: white;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.channel:hover {
+	cursor: pointer;
+	background: #3E313C;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.channel-header {
+	height: 53px;
+}
+
+.box-space {
+	padding: 10px 0px 10px 15px;
+}
+
+.right-content {
+	position: fixed;
+	top: 0;
+	left: 240px;
+}
+
+.btn-default:hover {
+	background-color: #56B68B !important;
+}
+
+.btn-default:hover .plus-color {
+	color: white;
+}
+
+.plus-color {
+	color: #ccc;
+}
+
+/*.extra-option:hover{
+ background-color: #56B68B;!important;
+ }*/
+
+.grey-color {
+	color: #ccc;
+}
+
+.grey-color-2 {
+	color: #7F7F83;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.channels-suggestion {
+	position: fixed;
+	bottom: 10%;
+	left: 30.2%;
+	width: 67%;
+}
+
+.arrow-display {
+	float: right;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+.message-time {
+	display: inline-block;
+	color: #FFFFFF;
+	margin-left: -10px;
+	margin-right: 9px;
+}
+
+li p.message-time-font{
+	color: #babbbf;
+}
+
+.message-time-font {
+	font-size: 11px;
+}
+.message-time:hover {
+	display: inline-block;
+	color: #babbbf;
+}
+
+.glyphicon-star{
+	font-size: 13px;
+	margin-left: 1px;
+}
+
+.glyphicon-star:hover {
+	color: #fc0;
+}
