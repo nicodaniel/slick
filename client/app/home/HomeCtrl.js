@@ -46,7 +46,7 @@ function($scope, $http, $rootScope, socket, HomeService, User) {
 	//all connected users
 	socket.on('users connected', function (usernames) {
 		console.log("users connected", usernames);
-		$scope.test = usernames; 
+		$scope.connectedUsers = usernames; 
 	});
 	
 	/**
@@ -55,7 +55,7 @@ function($scope, $http, $rootScope, socket, HomeService, User) {
  	 * @param {Object} username
 	 */
 	$scope.isOnline = function(username){
-		if($scope.test.indexOf(username) !=-1){
+		if($scope.connectedUsers.indexOf(username) !=-1){
 			return true;
 		}
 		return false;	
