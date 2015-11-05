@@ -25,7 +25,7 @@ function($scope, $http, $rootScope, socket, HomeService, User) {
 	
 	
 	$scope.users = [];
-	
+	$scope.connectedUsers = [];
 	HomeService.getUsers().success(function(data) {
 		$scope.users = data.users;
 	}).error(function(data) {
