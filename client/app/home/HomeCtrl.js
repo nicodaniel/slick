@@ -23,8 +23,9 @@ function($scope, $http, $rootScope, socket, HomeService, User) {
 		}
 	}; 
 	
+	
 	$scope.users = [];
-	console.log($scope.users);
+	
 	HomeService.getUsers().success(function(data) {
 		$scope.users = data.users;
 	}).error(function(data) {
@@ -33,14 +34,33 @@ function($scope, $http, $rootScope, socket, HomeService, User) {
 	
 	$scope.currentUser =  User.currentUser;
 	socket.emit('add user', $scope.currentUser.username);
-		
+	
 	socket.on('user joined', function (data) {
-		console.log("username", data);
+		console.log(data.username+" joins the channel");
 	});
 	
-	socket.on('updatedusers', function (usernames) {
-		console.log("update users connected", usernames);
+	socket.on('user left', function (data) {
+		console.log(data.username+" left");
 	});
+	
+	//all connected users
+	socket.on('users connected', function (usernames) {
+		console.log("users connected", usernames);
+		$scope.test = usernames; 
+	});
+	
+	/**
+	 * return true if user is connected
+	 * return false either 
+ 	 * @param {Object} username
+	 */
+	$scope.isOnline = function(username){
+		if($scope.test.indexOf(username) !=-1){
+			return true;
+		}
+		return false;	
+	};
+	
 	
 	socket.on('user disconnect', function (username) {
 		console.log(username+" has disconnected");

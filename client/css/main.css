@@ -22,6 +22,14 @@
 	height: 10px;
 }
 
+#cercle-offline {
+	background: #4D394B;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	border: 2px solid #ab9ba9;
+}
+
 .green-color {
 	color: #38978D;
 }
@@ -130,7 +138,7 @@ ul {
 	margin-right: 9px;
 }
 
-li p.message-time-font{
+li p.message-time-font {
 	color: #babbbf;
 }
 
@@ -142,7 +150,7 @@ li p.message-time-font{
 	color: #babbbf;
 }
 
-.glyphicon-star{
+.glyphicon-star {
 	font-size: 13px;
 	margin-left: 1px;
 }

@@ -41,7 +41,10 @@
 					<ul>
 						<li ng-repeat="user in users">
 							<div ng-show="user.username != currentUser.username">
-								 <div id="cercle" class="grey-color" style="display: inline-block"></div>
+								<!-- {{isOnline(user.username)}} -->
+								{{test}}
+								 <div id="cercle" class="grey-color" style="display: inline-block" ng-show="isOnline(user.username)"></div>
+								 <div id="cercle-offline" style="display: inline-block" ng-show="!isOnline(user.username)"></div>
 								<div style="display: inline-block">
 									{{user.username}}
 								</div>

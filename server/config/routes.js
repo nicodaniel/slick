@@ -13,15 +13,21 @@ var path = require('path'),
 
 module.exports = function(app, http, io) {
 	
-	var usernames = {};
+	var usernames = [];
 	io.on('connection', function(socket) {
 		console.log('a user connected');
 		socket.on('disconnect', function() {
 		console.log('user disconnected');
+
+		var index = usernames.indexOf(socket.username);
 		// remove the username from global usernames list
-		delete usernames[socket.username];
+		if (index != -1) {
+   			 usernames.splice(index, 1);
+		}
+		
+		io.sockets.emit('user left', socket.username);
 		// update list of users in chat, client-side
-		io.sockets.emit('updatedusers', usernames);
+		io.sockets.emit('users connected', usernames);
 		// echo globally that a client has left
 		socket.broadcast.emit('user disconnect', socket.username);
 		});
@@ -37,9 +43,9 @@ module.exports = function(app, http, io) {
 			// we store the username in the socket session for this client
 			socket.username = username;
 			// add the client's username to the global list
-			usernames[username] = username; 
-			// // echo globally (all clients) that a person has connected
-			socket.broadcast.emit('updatechat', username + ' has connected');
+			usernames.push(username); 
+		    // echo globally (all clients) that a person has connected
+			io.sockets.emit('users connected', usernames);
 			io.emit('user joined', {
 				username : socket.username
 			});
