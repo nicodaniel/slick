@@ -158,3 +158,14 @@ li p.message-time-font {
 .glyphicon-star:hover {
 	color: #fc0;
 }
+
+.list-title{
+	position: relative;
+	top:-20px;
+	background-color: white;
+	padding-right: 5px;
+}
+
+.list-title-height{
+	height: 15px;
+}

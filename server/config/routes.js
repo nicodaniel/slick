@@ -1,9 +1,9 @@
 var path = require('path'),
     clientPath = path.normalize(__dirname + '/../../client'),
     authentication = require('./authentication'),
-    diagrams = require('../controllers/diagrams'),
     messages = require('../controllers/messages'),
-    user = require('../controllers/users');
+    user = require('../controllers/users'),
+    channels = require('../controllers/channels');
 
     var passport = require('passport'),
 	mongoose = require('mongoose'),
@@ -58,6 +58,8 @@ module.exports = function(app, http, io) {
 	app.get('/me', authentication.getCurrentUser);
 	app.post('/api/login', authentication.login);
 	
+	app.get('/api/channels', channels.getChannels);
+	app.get('/api/channel/:channel', channels.getChannel);
 	//retrieve messages from channel
 	app.get('/api/channel/:channel/messages');
 	app.get('/api/channel/:channel/messages/before/:date');

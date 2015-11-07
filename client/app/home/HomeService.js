@@ -8,6 +8,12 @@ angular.module('app').
       }, 
       getUsers:function(){
       	return $http.get('/api/users');
+      },
+      getChannels:function(){
+      	return $http.get('/api/channels');
+      },
+      getChannel:function(channel){
+      	return $http.get('/api/channel/'+channel);
       },    
       addApplication: function(application) {
         return $http.post('/api/applications/', application); 

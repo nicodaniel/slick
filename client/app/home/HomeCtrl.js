@@ -1,6 +1,12 @@
 angular.module('app').controller('HomeCtrl', ['$scope', '$http','$rootScope', 'socket','HomeService','User',
 function($scope, $http, $rootScope, socket, HomeService, User) {
-
+	
+	$scope.defaultChannel = "general";
+	
+	HomeService.getChannel($scope.defaultChannel).success(function(data){
+		$scope.channel = data.channel;
+	});
+	
 	$scope.hoverIn = function() {
 		this.hoverQuickSwitcher = true;
 	};

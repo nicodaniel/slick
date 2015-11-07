@@ -1,12 +1,31 @@
 <div class="container-fluid" style="background-color: white!important;">
 	<div class="row">
 		<div class="sidebar" style="background: #4D394B;padding-right: 20px;">
-			<div class="" style="padding: 15px 7px 10px 15px;" >
+			<div style="padding: 15px 7px 10px 15px;" >
 				<!--  channel name and connection status -->
 					<div style="color:white;font-size: 18px;" style="display: inline-block">
 						<b>isepbollah</b>
-						<i class="glyphicon glyphicon-chevron-down purple-font-color arrow-display dropdown"
-						ng-click="openWindow"></i>
+						<span uib-dropdown on-toggle="toggled(open)">
+      						<a href id="simple-dropdown" uib-dropdown-toggle>
+       						 <i class="glyphicon glyphicon-chevron-down purple-font-color arrow-display dropdown"></i>
+      						</a>
+     					<ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown" 
+     						style="color: black;padding: 10px;width:200px;">
+     					   <li class="list-title-height">
+     					   	<hr class="divider" style="border: 0;">
+     					    <span class="grey-color-2 list-title"> You</span>
+     					     </hr>
+    					    </li>
+    					    <li>Preferences</li>
+    					    <li style="margin-bottom: 15px;">View Profile & account</li>
+    					    <li class="list-title-height">	
+    					    	<hr class="divider" style="border: 0;">
+    					    		<span class="grey-color-2 list-title"> Your teams</span>
+    					    	</hr>
+    					    </li>
+    					    <li>Sign out of <b>isepbollah</b></li>
+ 					     </ul>
+					    </span>
 					</div>
 					<div>
 						<div id="cercle" class="green-color" style="display: inline-block"></div>
@@ -66,14 +85,13 @@
 		</div>
 		<div class="right-content">
 			<div class="row channel-header">
-				<h4>#general</h4>
+				<h4>#{{channel.name}}</h4>
 			</div>
 			<div>
-				<h2><b>#general</b></h2>
+				<h2><b>#{{channel.name}}</b></h2>
 				<p style="width: 580px;">
 					This is the very beginning of the <a>#general</a> channel, which you created yesterday.
-					The purpose of this channel is: This channel is for team-wide communication and announcements.
-					All team members are in this channel.
+					The purpose of this channel is: <i>{{channel.description}}(<a>edit</a>).</i>
 				</p>
 			</div>
 			<div>
@@ -95,8 +113,9 @@
 				</ul>
 			</div>
 
+		
 			<div class="row" style="margin-right: 10px;position: fixed;bottom: 0;margin-bottom: 15px;">
-				<div class="col-lg-6">
+				<div style="width:95%;margin-left: 20px;">
 					<div class="panel panel-default" style="margin-bottom: 0px;width: 83%;margin-left: 51px;" ng-show="">
 						<div class="panel-heading" style="padding: 5px 10px 4px;">
 							<span class="grey-color-2">Channels</span>
