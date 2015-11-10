@@ -1,26 +1,39 @@
-.btn-green{
-	background-color :#2ab27b;
+.btn-green {
+	background-color: #2ab27b;
 }
 .icon-btn {
-	padding: 1px 15px 3px 2px!important;;
-	border-radius: 50px!important;
+	padding: 1px 15px 3px 2px !important;;
+	border-radius: 50px !important;
 }
 
-.white-circle{
+.white-circle {
 	width: 23px;
-    height: 23px;
-    background-color: white;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    left: 38px;
-    top: -22px;
+	height: 23px;
+	background-color: white;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	left: -25px;
+	top: -20px;
 }
 
-.text-btn{
+.text-btn {
+	color: white;
+}
+
+.text-btn-public {
+	color: white;
+	padding-left: 30px;
+}
+
+.text-btn-private {
+	color: white;
+	padding-right: 5px;
+}
+
+.text-btn-translate {
 	width: 50px;
-	padding:2px 0px 0px 11px;
-    color: white;
+	padding: 2px 0px 0px 11px;
+	color: white;
 }
-
 

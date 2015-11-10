@@ -6,9 +6,9 @@
 		
 		<div style="margin-bottom: 30px;">
 		<a class="btn icon-btn btn-green" channel-status="isClicked" style="height: 27px;width: 90px" href="#">
-			<div class="text-btn" ng-show="!isClicked">Public</div>
-			<div class="text-btn" ng-show="isClicked">Private</div>
-		<span class="white-circle text-success"></span>	
+			<div class="text-btn-public" id="text-btn" ng-show="!isClicked">Public</div>
+			<div class="text-btn-private" id="text-btn" ng-show="isClicked">Private</div>
+		<span class="white-circle" id="btn-circle"></span>	
 		</a>
 		<span class="comment-font-md" ng-show="!isClicked">Anyone on your team can join</span>
 		<span class="comment-font-md" ng-show="isClicked">Restricted to invited members</span>
