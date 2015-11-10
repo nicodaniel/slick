@@ -1,5 +1,5 @@
-angular.module('app').controller('HomeCtrl', ['$scope', '$http','$rootScope', 'socket','HomeService','User',
-function($scope, $http, $rootScope, socket, HomeService, User) {
+angular.module('app').controller('HomeCtrl', ['$scope', '$http','$rootScope', 'socket','HomeService','User','$uibModal',
+function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 	
 	$scope.defaultChannel = "general";
 	
@@ -89,5 +89,29 @@ function($scope, $http, $rootScope, socket, HomeService, User) {
 		$scope.messages.push(msg);
 		}
 	});
+	
+	$scope.items = ['item1', 'item2', 'item3'];
+	  $scope.openModal = function (size) {
+		console.log("open");
+    var modalInstance = $uibModal.open({
+      templateUrl: 'app/views/channel-purpose-modal.html',
+      controller: 'HomeCtrl',
+      size: size,
+       resolve: {
+        channel: function () {
+          return $scope.channel;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      console.log('Modal dismissed at: ' + new Date());
+    });
+  };
+  
+  $scope.isClicked = false;
+
 	
 }]);
