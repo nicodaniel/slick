@@ -112,6 +112,17 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
   };
   
   $scope.isClicked = false;
+  
+  $scope.containTag = function(message){
+  	// console.log("message here", message);
+  	if(message.indexOf("#") != -1){
+  		return true;
+  	}
+  	if(message.indexOf("# ") != -1){
+  		return false;
+  	}
+  	return false;
+  };
 
 	
 }]);
