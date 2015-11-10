@@ -1,42 +1,46 @@
-<div class="container-fluid" style="background-color: white!important;">
-	<div class="row">
+<div class="container-fluid" style="background-color: white!important;" ng-init="showTemplateChannel = false;">
+	<div class="row" ng-show="!showTemplateChannel == true">
 		<div class="sidebar" style="background: #4D394B;padding-right: 20px;">
 			<div style="padding: 15px 7px 10px 15px;" >
 				<!--  channel name and connection status -->
-					<div style="color:white;font-size: 18px;" style="display: inline-block">
-						<b>isepbollah</b>
-						<span uib-dropdown on-toggle="toggled(open)">
-      						<a href id="simple-dropdown" uib-dropdown-toggle>
-       						 <i class="glyphicon glyphicon-chevron-down purple-font-color arrow-display dropdown"></i>
-      						</a>
-     					<ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown" 
-     						style="color: black;padding: 10px;width:200px;">
-     					   <li class="list-title-height">
-     					   	<hr class="divider" style="border: 0;">
-     					    <span class="grey-color-2 list-title"> You</span>
-     					     </hr>
-    					    </li>
-    					    <li>Preferences</li>
-    					    <li style="margin-bottom: 15px;">View Profile & account</li>
-    					    <li class="list-title-height">	
-    					    	<hr class="divider" style="border: 0;">
-    					    		<span class="grey-color-2 list-title"> Your teams</span>
-    					    	</hr>
-    					    </li>
-    					    <li>Sign out of <b>isepbollah</b></li>
- 					     </ul>
-					    </span>
+				<div style="color:white;font-size: 18px;" style="display: inline-block">
+					<b>isepbollah</b>
+					<span uib-dropdown on-toggle="toggled(open)"> <a href id="simple-dropdown" uib-dropdown-toggle> <i class="glyphicon glyphicon-chevron-down purple-font-color arrow-display dropdown"></i> </a>
+						<ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown"
+						style="color: black;padding: 10px;width:200px;">
+							<li class="list-title-height">
+								<hr class="divider" style="border: 0;">
+								<span class="grey-color-2 list-title"> You</span>
+								</hr>
+							</li>
+							<li>
+								Preferences
+							</li>
+							<li style="margin-bottom: 15px;">
+								View Profile & account
+							</li>
+							<li class="list-title-height">
+								<hr class="divider" style="border: 0;">
+								<span class="grey-color-2 list-title"> Your teams</span>
+								</hr>
+							</li>
+							<li>
+								Sign out of <b>isepbollah</b>
+							</li>
+						</ul> </span>
+				</div>
+				<div>
+					<div id="cercle" class="green-color" style="display: inline-block"></div>
+					<div class="purple-font-color" style="display: inline-block">
+						{{currentUser.username}}
 					</div>
-					<div>
-						<div id="cercle" class="green-color" style="display: inline-block"></div>
-						<div class="purple-font-color" style="display: inline-block">
-							{{currentUser.username}}
-						</div>
-					</div>
+				</div>
 			</div>
 			<div class="purple-font-color" >
 				<div style="margin-left: 15px;">
 					CHANNELS(2)
+					<i class="glyphicon glyphicon-plus-sign purple-font-color arrow-display"
+					ng-click="showTemplateChannel = true"></i>
 				</div>
 				<div>
 					<div class="active-channel channel">
@@ -60,8 +64,8 @@
 					<ul>
 						<li ng-repeat="user in users">
 							<div ng-show="user.username != currentUser.username">
-								 <div id="cercle" class="grey-color" style="display: inline-block" ng-show="isOnline(user.username)"></div>
-								 <div id="cercle-offline" style="display: inline-block" ng-show="!isOnline(user.username)"></div>
+								<div id="cercle" class="grey-color" style="display: inline-block" ng-show="isOnline(user.username)"></div>
+								<div id="cercle-offline" style="display: inline-block" ng-show="!isOnline(user.username)"></div>
 								<div style="display: inline-block">
 									{{user.username}}
 								</div>
@@ -91,7 +95,7 @@
 				<h2><b>#{{channel.name}}</b></h2>
 				<p style="width: 580px;">
 					This is the very beginning of the <a>#general</a> channel, which you created yesterday.
-					The purpose of this channel is: <i>{{channel.description}}(<a>edit</a>).</i>
+					The purpose of this channel is: <i>{{channel.description}}(<a ng-click="openModal()">edit</a>).</i>
 				</p>
 			</div>
 			<div>
@@ -99,21 +103,28 @@
 					<li ng-repeat="mess in messages track by $index" style="margin-bottom: 10px;">
 						<div style="display: inline-block;" ng-show="showAuthor($index)">
 							<img src="./img/avatar1.png" width="36" height="36" style="border-radius: 3px;display: inline-block;margin-top: 15px;" />
-							<p style="display: inline-block;margin-left: 6px;"><b>{{mess.author}}</b></p>
-							<p style="display: inline-block;" class="message-time-font">{{mess.timestamp | date:'h:mm'}}
-								<i class="glyphicon glyphicon-star"></i></p>
-							<p style="display: block;margin-top: -16px;padding-left: 47px;margin-bottom: 0px;">{{mess.message}}</p>
+							<p style="display: inline-block;margin-left: 6px;">
+								<b>{{mess.author}}</b>
+							</p>
+							<p style="display: inline-block;" class="message-time-font">
+								{{mess.timestamp | date:'h:mm'}} <i class="glyphicon glyphicon-star"></i>
+							</p>
+							<p style="display: block;margin-top: -16px;padding-left: 47px;margin-bottom: 0px;">
+								{{mess.message}}
+							</p>
 						</div>
 						<div ng-show="!$first">
-							<div class="message-time message-time-font">{{mess.timestamp | date:'h:mm'}}
-								<i class="glyphicon glyphicon-star"></i></div>
-							<div style="display: inline-block;">{{mess.message}}</div>
+							<div class="message-time message-time-font">
+								{{mess.timestamp | date:'h:mm'}} <i class="glyphicon glyphicon-star"></i>
+							</div>
+							<div style="display: inline-block;">
+								{{mess.message}}
+							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
 
-		
 			<div class="row" style="margin-right: 10px;position: fixed;bottom: 0;margin-bottom: 15px;">
 				<div style="width:95%;margin-left: 20px;">
 					<div class="panel panel-default" style="margin-bottom: 0px;width: 83%;margin-left: 51px;" ng-show="">
@@ -148,4 +159,5 @@
 			</div>
 		</div>
 	</div>
-
+	<div ng-include="'app/views/create-new-channel.html'" ng-show="showTemplateChannel == true"></div>
+</div>

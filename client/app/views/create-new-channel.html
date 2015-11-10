@@ -1,0 +1,42 @@
+<div class="row">
+	<!-- <i class="glyphicon glyphicon-remove big-circle" ></i>
+	<i class="glyphicon glyphicon-remove big-circle">esc</i> -->
+	<div class="center-block" style="float: none;padding: 50px;width: 680px;">
+		<h1> <b>Create a new <span ng-show="!isClicked">public</span><span ng-show="isClicked">private</span> channel </b></h1>
+		
+		<div style="margin-bottom: 30px;">
+		<a class="btn icon-btn btn-green" channel-status="isClicked" style="height: 27px;width: 90px" href="#">
+			<div class="text-btn" ng-show="!isClicked">Public</div>
+			<div class="text-btn" ng-show="isClicked">Private</div>
+		<span class="white-circle text-success"></span>	
+		</a>
+		<span class="comment-font-md" ng-show="!isClicked">Anyone on your team can join</span>
+		<span class="comment-font-md" ng-show="isClicked">Restricted to invited members</span>
+		<div class="comment-font" ng-show="isClicked">A private channel is only visible to its members, and only members of a private channel can read or search its contents.
+</div>
+		</div>
+		
+		<div class="form-space">
+		<label>Channel name</label>
+		<input type="text" class="form-control input-lg" placeholder="#Enter name here" />
+		<span class="comment-font">Names must be 21 characters or less, lower case and cannot contain spaces or periods.</span>
+		</div>
+		
+		<div class="form-space">
+		<label>Invite others to join<span>(optional)</span></label>
+		<input type="text" class="form-control input-lg" placeholder="search by name" />
+		</div>
+		
+		<div class="">
+		<label>Purpose<span>(optional)</span></label>
+		<textarea class="form-control" placeholder="briefly discribe the purpose of this channel"></textarea>			
+		<span class="comment-font">Give your channel a purpose that describes what it will be used for.</span>
+		</div>
+		<br/>
+
+		<button type="button" class="btn btn-success btn-lg"
+		style="background: #48BA87;border-color:#48BA87;">
+			<b>create Channel</b>
+		</button>
+	</div>
+</div>
