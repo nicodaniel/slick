@@ -14,7 +14,13 @@ angular.module('app').
       },
       getChannel:function(channel){
       	return $http.get('/api/channel/'+channel);
-      },    
+      },
+      saveMessage:function(msg){
+      	return $http.post("/api/message", msg);
+      },
+      setAsFavorite:function(id, userId){
+      	return $http.put('/api/favorite/message/:id', id, userId);
+      },   
       addApplication: function(application) {
         return $http.post('/api/applications/', application); 
       },

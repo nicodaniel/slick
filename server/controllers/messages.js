@@ -3,16 +3,9 @@ var Messages = require('mongoose').model('Messages');
 
 
 exports.saveMessage = function(messageObj, res) {
-	// console.log("saving message", messageObj);
  	var message = new Messages(messageObj);
- 	message.save(function(err){
- 		console.log(err);
- 		if(!err){
- 			
- 		}else{
- 			console.log("error during message storing");
- 		}
- 	});
+    message.save();
+ 	res.json({id: message._id});
 };
 
 

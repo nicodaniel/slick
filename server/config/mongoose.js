@@ -2,7 +2,8 @@ var mongoose    = require( 'mongoose' ),
     autoIncrement = require('mongoose-auto-increment'),
     Users    = require('../models/Users'),
     Messages = require('../models/Messages'),
-	Channels = require('../models/Channels'); 
+	Channels = require('../models/Channels'), 
+	Favorites = require('../models/Favorites'); 
   
 module.exports = function(config) {
   // Create the database connection

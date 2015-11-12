@@ -3,7 +3,8 @@ var path = require('path'),
     authentication = require('./authentication'),
     messages = require('../controllers/messages'),
     user = require('../controllers/users'),
-    channels = require('../controllers/channels');
+    channels = require('../controllers/channels'),
+    favorites = require('../controllers/favorites');
 
     var passport = require('passport'),
 	mongoose = require('mongoose'),
@@ -34,7 +35,6 @@ module.exports = function(app, http, io) {
 		
 		socket.on('send:message', function(msg) {
 			io.emit('send:message', msg);
-			messages.saveMessage(msg);
 		});
 		
 
@@ -67,6 +67,13 @@ module.exports = function(app, http, io) {
 	//users
 	app.get('/api/users', user.getAllUsers);
 	// app.get('/api/user/:id');
+	
+	//messages
+	app.post('/api/message', messages.saveMessage);
+	
+	//favorite
+	app.put('/api/favorite/message/:id', favorites.addMessage);
+	// app.delete('/api/favorite/message/:id');
 	
 
 	app.all('/api/*', function(req, res) {

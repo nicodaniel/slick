@@ -86,9 +86,22 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 	$scope.messages = [];
 	socket.on('send:message', function(msg) {
 		if (msg != "") {
-		$scope.messages.push(msg);
+		var size = $scope.messages.push(msg);
+		HomeService.saveMessage(msg).success(function(id){
+			msg.id = id.id;
+		});
 		}
 	});
+	
+	$scope.asFavorite = function(id){
+		console.log("id", id);
+		console.log(3);
+		console.log(1+3);
+		console.log(1+3+"3");
+		console.log(1+3+"3"+2);
+		console.log("9"+1+3+"3"+2+2);
+	 // HomeService.setAsFavorite(id, User.currentUser._id);
+	};
 	
 	$scope.items = ['item1', 'item2', 'item3'];
 	  $scope.openModal = function (size) {
