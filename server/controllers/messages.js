@@ -2,8 +2,8 @@ var Messages = require('mongoose').model('Messages');
 
 
 
-exports.saveMessage = function(messageObj, res) {
- 	var message = new Messages(messageObj);
+exports.saveMessage = function(req, res) {
+ 	var message = new Messages(req.body);
     message.save();
  	res.json({id: message._id});
 };
