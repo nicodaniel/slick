@@ -100,7 +100,9 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 		console.log(1+3+"3");
 		console.log(1+3+"3"+2);
 		console.log("9"+1+3+"3"+2+2);
-	 // HomeService.setAsFavorite(id, User.currentUser._id);
+	  HomeService.setAsFavorite(id, {userId: User.currentUser._id}).success(function(data) {
+	  	console.log(data);
+	  });
 	};
 	
 	$scope.items = ['item1', 'item2', 'item3'];

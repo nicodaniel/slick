@@ -18,8 +18,8 @@ angular.module('app').
       saveMessage:function(msg){
       	return $http.post("/api/message", msg);
       },
-      setAsFavorite:function(id, userId){
-      	return $http.put('/api/favorite/message/:id', id, userId);
+      setAsFavorite:function(id, user){
+      	return $http.put('/api/favorite/message/'+id, user);
       },   
       addApplication: function(application) {
         return $http.post('/api/applications/', application); 
