@@ -61,12 +61,13 @@ module.exports = function(app, http, io) {
 	app.get('/api/channels', channels.getChannels);
 	app.get('/api/channel/:channel', channels.getChannel);
 	//retrieve messages from channel
-	app.get('/api/channel/:channel/messages');
+	app.get('/api/channel/:channel/messages', channels.getMessage);
 	app.get('/api/channel/:channel/messages/before/:date');
 	
 	//users
 	app.get('/api/users', user.getAllUsers);
 	// app.get('/api/user/:id');
+	app.get('/api/user/:id/favorite', user.getAllFavorite);
 	
 	//messages
 	app.post('/api/message', messages.saveMessage);

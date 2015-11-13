@@ -88,8 +88,10 @@
 			</div>
 		</div>
 		<div class="right-content">
-			<div class="row channel-header">
-				<h4>#{{channel.name}}</h4>
+			<div class="channel-header">
+				<h4  style="display: inline-block">#{{channel.name}}</h4>
+				<input type="text" class="form-control" placeholder="Search"  style="display: inline-block;width: 30%;" />
+				<button type="button" class="btn btn-default btn-circle" style="margin-bottom: 5px"><i class="glyphicon glyphicon-star" style="font-size: 15px;"></i></button>
 			</div>
 			<div>
 				<h2><b>#{{channel.name}}</b></h2>
@@ -118,7 +120,7 @@
 							<div class="message-time message-time-font">
 								{{mess.timestamp | date:'h:mm'}} <i class="glyphicon glyphicon-star"
 								ng-click="asFavorite(mess.id)"></i>
-							</div>style
+							</div>
 							<div style="display: inline-block;">
 								{{mess.message}}
 							</div>

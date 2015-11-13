@@ -15,6 +15,9 @@ angular.module('app').
       getChannel:function(channel){
       	return $http.get('/api/channel/'+channel);
       },
+      getChannelMessage:function(channel){
+      	return $http.get('/api/channel/'+channel+'/messages');
+      },
       saveMessage:function(msg){
       	return $http.post("/api/message", msg);
       },

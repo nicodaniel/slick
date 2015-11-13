@@ -7,6 +7,11 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 		$scope.channel = data.channel;
 	});
 	
+	$scope.messages = [];
+	HomeService.getChannelMessage($scope.defaultChannel).success(function(data){
+		$scope.messages = data.messages;
+	});
+	
 	$scope.hoverIn = function() {
 		this.hoverQuickSwitcher = true;
 	};
@@ -20,7 +25,7 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 			return true;
 		}
 		else{
-			var previousAuthor =	$scope.messages[$index-1].author;
+			var previousAuthor = $scope.messages[$index-1].author;
 			var author = $scope.messages[$index].author;
 			if(previousAuthor === author){
 				return false;
@@ -83,7 +88,6 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 		}
 	};
 
-	$scope.messages = [];
 	socket.on('send:message', function(msg) {
 		if (msg != "") {
 		var size = $scope.messages.push(msg);
@@ -94,19 +98,12 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 	});
 	
 	$scope.asFavorite = function(id){
-		console.log("id", id);
-		console.log(3);
-		console.log(1+3);
-		console.log(1+3+"3");
-		console.log(1+3+"3"+2);
-		console.log("9"+1+3+"3"+2+2);
 	  HomeService.setAsFavorite(id, {userId: User.currentUser._id}).success(function(data) {
 	  	console.log(data);
 	  });
 	};
 	
-	$scope.items = ['item1', 'item2', 'item3'];
-	  $scope.openModal = function (size) {
+	  	$scope.openModal = function (size) {
 		console.log("open");
     var modalInstance = $uibModal.open({
       templateUrl: 'app/views/channel-purpose-modal.html',

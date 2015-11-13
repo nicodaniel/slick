@@ -22,19 +22,6 @@
 	height: 10px;
 }
 
-.big-circle:hover {
-	background-color: #ccc;
-}
-
-.big-circle {
-	padding: 5px 10px;
-	display: inline-block;
-	border-radius: 50%;
-	background-color: white;
-	width: 60px;
-	height: 60px;
-}
-
 #cercle-offline {
 	background: #4D394B;
 	border-radius: 50%;
@@ -42,6 +29,8 @@
 	height: 10px;
 	border: 2px solid #ab9ba9;
 }
+
+
 
 .green-color {
 	color: #38978D;
@@ -100,10 +89,7 @@
 	position: fixed;
 	top: 0;
 	left: 240px;
-}
-
-.btn-default:hover {
-	background-color: #56B68B !important;
+	width: 75%;
 }
 
 .btn-default:hover .plus-color {
@@ -114,9 +100,9 @@
 	color: #ccc;
 }
 
-/*.extra-option:hover{
- background-color: #56B68B;!important;
- }*/
+.extra-option:hover{
+ background-color: #56B68B!important;
+}
 
 .grey-color {
 	color: #ccc;
@@ -212,3 +198,15 @@ li p.message-time-font {
 	margin-top: 15px;
 }
 
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center!important;
+  padding: 7px 5px!important;
+  font-size: 12px!important;
+  border-radius: 50%!important;
+}
+
+.btn-circle:hover .glyphicon-star{
+	color: #fc0;
+}

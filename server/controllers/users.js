@@ -6,6 +6,10 @@ exports.checkUsers = function(req, res) {
   });
 };
 
+exports.getAllFavorite = function(req, res){
+	
+};
+
 exports.getAllUsers = function(req, res){
 	Users.find({}, function (err, users) {
   	res.json({users:users});
