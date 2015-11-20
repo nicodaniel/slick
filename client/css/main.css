@@ -137,7 +137,6 @@ ul {
 .message-time {
 	display: inline-block;
 	color: #FFFFFF;
-	margin-left: -10px;
 	margin-right: 9px;
 }
 
@@ -210,3 +209,47 @@ li p.message-time-font {
 .btn-circle:hover .glyphicon-star{
 	color: #fc0;
 }
+
+.scroll-zone{
+	width: 99%;
+    height: 540px;
+    overflow-y: scroll;
+}
+
+#scrollbar-style::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+	background-color: #f3f3f3;
+	border-radius: 8px;
+}
+
+#scrollbar-style::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #f3f3f3;
+	border-radius: 8px;
+}
+
+#scrollbar-style::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #d9d9de;
+}
+
+/* remove style on a link*/
+
+a.deco-none{
+	text-decoration: none;
+	color:#ab9ba9 !important;
+}
+
+a.deco-none:hover{
+	color:#ab9ba9 !important;
+	text-decoration: none;
+}
+
+a.deco-none:focus{
+	color:#ab9ba9 !important;
+	text-decoration: none;
+}
+
