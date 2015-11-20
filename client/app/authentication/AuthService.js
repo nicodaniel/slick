@@ -1,6 +1,7 @@
 angular.module('app').factory('AuthService',['$http', '$q','$cookies','$location','$rootScope','$cookieStore','User',
 	 function($http, $q, $cookies, $location, $rootScope, $cookieStore, User) {
 	var currentUser;
+	//FIXME rewrite authentication is needed.....
 
 	return {
 		login : function(username, password) {
@@ -9,7 +10,7 @@ angular.module('app').factory('AuthService',['$http', '$q','$cookies','$location
 				if (response.data.success === true) {
 					currentUser = response.data.user;
 					User.currentUser = response.data.user;
-					 $location.path('/home');
+					 $location.path('/home/general/');
 					dfd.resolve(true);
 				} else {
 					dfd.resolve(false);

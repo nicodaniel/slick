@@ -48,6 +48,7 @@ exports.login = function(req, res, next) {
     if(!user) { res.send({success:false});}
     req.login(user, function(err) {
       if(err) {return next(err);}
+      //FIXME
       res.cookie('sessionCookie','you-can-loggin-all-time-'+user._id);
       res.send({success:true, user:user});
     });
@@ -58,8 +59,8 @@ exports.login = function(req, res, next) {
 exports.getCurrentUser = function(req, res, next) {
   if(req.cookies.sessionCookie){
   	var str = req.cookies.sessionCookie;
+  	//FIXME
 	var id = str.substring(24, str.length);
-	console.log("id :", id);
   	Users.findOne({_id:id}).exec(function(err, user) {
       if(user) {
       	res.send({user : user});

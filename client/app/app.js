@@ -14,10 +14,12 @@ function($routeProvider, $locationProvider) {
   //all routes from apps
   $routeProvider
   	.when('/', { templateUrl: 'app/views/signIn.html', controller: 'SigninCtrl'})
-    .when('/home', { templateUrl: 'app/views/home.html', controller: 'HomeCtrl',
+    .when('/home/general/', { templateUrl: 'app/views/home.html', controller: 'HomeCtrl',
      resolve : routeRoleChecks.user})
+     .when('/home/:name/',{ templateUrl: 'app/views/home.html', controller: 'HomeCtrl', reloadOnSearch: false})
     .when('/group', { templateUrl: 'app/views/group.html',   controller: 'GroupCtrl'   })
     .when('/groupId', { templateUrl: 'app/views/groupId.html',    controller: 'GroupCtrl'   })
+    .when('/test', { templateUrl: 'app/views/new-channel.html',    controller: 'HomeCtrl'   })
     .otherwise({ redirectTo: '/' });
   
   $locationProvider.html5Mode(true);

@@ -1,14 +1,28 @@
-angular.module('app').controller('HomeCtrl', ['$scope', '$http','$rootScope', 'socket','HomeService','User','$uibModal',
-function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
+angular.module('app').controller('HomeCtrl', ['$scope', '$http','$rootScope', 'socket','HomeService','User','$uibModal','$routeParams','$location',
+function($scope, $http, $rootScope, socket, HomeService, User, $uibModal, $routeParams, $location) {
 	
-	$scope.defaultChannel = "general";
-	
-	HomeService.getChannel($scope.defaultChannel).success(function(data){
+	$scope.url = $location.url();
+	$scope.channelName = $scope.url.substring(6, $scope.url.length-1);
+
+	HomeService.getChannel($scope.channelName).success(function(data){
 		$scope.channel = data.channel;
 	});
 	
+	$scope.channelType = $routeParams;
+	$scope.isDirectMessage = function(){
+		if($scope.channelType.name == undefined){
+			return false;
+		}
+		if($scope.channelType.name.indexOf("@") !=-1){
+			return true;	
+		}
+		return false;
+	};
+	
+
+	
 	$scope.messages = [];
-	HomeService.getChannelMessage($scope.defaultChannel).success(function(data){
+	HomeService.getChannelMessage($scope.channelName).success(function(data){
 		$scope.messages = data.messages;
 	});
 	
@@ -103,8 +117,8 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
 	  });
 	};
 	
-	  	$scope.openModal = function (size) {
-		console.log("open");
+	$scope.openModal = function (size) {
+	console.log("open");
     var modalInstance = $uibModal.open({
       templateUrl: 'app/views/channel-purpose-modal.html',
       controller: 'HomeCtrl',
@@ -126,7 +140,6 @@ function($scope, $http, $rootScope, socket, HomeService, User, $uibModal) {
   $scope.isClicked = false;
   
   $scope.containTag = function(message){
-  	// console.log("message here", message);
   	if(message.indexOf("#") != -1){
   		return true;
   	}
